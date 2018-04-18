@@ -9,6 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormComponent } from './form/form.component';
+import { SurveyStructureService } from './survey-structure.service';
 
 
 @NgModule({
@@ -24,7 +25,9 @@ import { FormComponent } from './form/form.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    SurveyStructureService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
