@@ -1,0 +1,25 @@
+{
+  "name": "mfocus_sales",
+  "version": "1.0.0",
+  "description": "&copy; Stoke, LLC 2018 - All Rights Reserved<br> This code may not be reproduced or shared without permission.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stoke-Dev/mfocus_sales.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stoke-Dev/mfocus_sales/issues"
+  },
+  "homepage": "https://github.com/Stoke-Dev/mfocus_sales#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp-sass": "^4.0.1"
+  }
+}
