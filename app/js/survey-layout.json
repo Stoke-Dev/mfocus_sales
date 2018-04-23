@@ -218,6 +218,81 @@
                 "title": "* Governance"
             }],
             "title": "Full Time Employees (FTEs)"
+        },
+
+        {
+            "type": "panel",
+            "name": "panel1",
+            "elements": [{
+                "type": "text",
+                "name": "question1",
+                "title": "Number of CTEs",
+                "isRequired": true,
+                "inputType": "number"
+            }, {
+                "type": "text",
+                "name": "question2",
+                "title": "Average Wage"
+            }, {
+                "type": "text",
+                "name": "question3",
+                "title": "Average Annual Turn-over (%)"
+            }, {
+                "type": "panel",
+                "name": "panel9",
+                "elements": [{
+                    "type": "text",
+                    "name": "question30",
+                    "title": "* Average number of entitlements / staff"
+                }],
+                "title": "Fulfilment"
+            },{
+                "type": "panel",
+                "name": "panel9",
+                "elements": [{
+                    "type": "text",
+                    "name": "question30",
+                    "title": "* Average number of entitlements / staff"
+                }],
+                "title": "Self Service"
+            },{
+                "type": "panel",
+                "name": "panel9",
+                "elements": [{
+                    "type": "text",
+                    "name": "question30",
+                    "title": "* Average number of entitlements / staff"
+                }],
+                "title": "* Workflows"
+            },{
+                "type": "panel",
+                "name": "panel9",
+                "elements": [{
+                    "type": "text",
+                    "name": "question30",
+                    "title": "* Average number of entitlements / staff"
+                }],
+                "title": "* Decision Analytics"
+            },{
+                "type": "panel",
+                "name": "panel9",
+                "elements": [{
+                    "type": "text",
+                    "name": "question30",
+                    "title": "* Average number of entitlements / staff"
+                }],
+                "title": "* Single Sign On"
+            },{
+                "type": "panel",
+                "name": "panel9",
+                "elements": [{
+                    "type": "text",
+                    "name": "question30",
+                    "title": "* Average number of entitlements / staff"
+                }],
+                "title": "* Governance"
+            }],
+            "title": "Casual Employees (CTEs)"
         }]
     }]
 }

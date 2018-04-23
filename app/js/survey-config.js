@@ -12,7 +12,17 @@ $(document).ready(function(){
 
         $("#surveyElement").Survey({
             model:survey,
-            onComplete:sendDataToServer
+            onComplete:sendDataToServer,
+            onUpdatePanelCssClasses:(a,b)=>{
+                var el_id = "#"+b.panel.id;
+
+                b.panel.state = "collapsed";
+                
+                if (b.panel.isPanel) {
+                    $(el_id).addClass("mf-panel");
+                }
+                
+            }
         });
 
         console.log("JSON LOADED: SUCCESS");
@@ -20,7 +30,7 @@ $(document).ready(function(){
     .fail(function(jqxhr, textStatus, err) {
         $("#surveyElement").html("ERROR: Form framework could not be loaded");
         console.log("JSON ERROR: ", err);
-    })
+    });
 
 });
 
