@@ -4,7 +4,7 @@ Survey.Survey.cssType = "bootstrap";
 
 $(document).ready(function(){
 
-    $.getJSON("/js/survey-layout.json", function(data) {
+    $.getJSON("js/survey-layout.json", function(data) {
 
         surveyJSON = data;
 
