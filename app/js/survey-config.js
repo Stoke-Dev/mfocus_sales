@@ -16,12 +16,23 @@ $(document).ready(function(){
             onUpdatePanelCssClasses:(a,b)=>{
                 var el_id = "#"+b.panel.id;
 
-                b.panel.state = "collapsed";
-                
-                if (b.panel.isPanel) {
-                    $(el_id).addClass("mf-panel");
+                if (b.panel.name != "ClientPanel") {
+                    b.panel.state = "collapsed";
                 }
                 
+                if (b.panel.parent && b.panel.parent.isPanel) {
+                    $(el_id).addClass("mf-sub-panel");
+                } else if (b.panel.isPanel) {
+                    $(el_id).addClass("mf-panel");
+                    // console.log(b);
+                }
+                
+            },
+            onUpdateQuestionCssClasses:(a,b)=>{
+                var el_id = "#"+b.question.id;
+                console.log(b);
+
+                $(el_id).addClass("mf-question");
             }
         });
 
