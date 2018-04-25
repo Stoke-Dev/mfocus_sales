@@ -49,6 +49,8 @@ body {
         background-color: #fefefe;
         padding-top: 20px;
         overflow: hidden;
+        border-top: 1px solid rgba(0,0,0,.125);
+        
         .mf-loading {
             display: block;
             text-align: center;
