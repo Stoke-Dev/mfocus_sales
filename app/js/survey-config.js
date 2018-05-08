@@ -16,7 +16,7 @@ $(document).ready(function(){
             onUpdatePanelCssClasses:(a,b)=>{
                 var el_id = "#"+b.panel.id;
 
-                if (b.panel.name != "ClientPanel") {
+                if (b.panel.name != "client_data") {
                     b.panel.state = "collapsed";
                 }
                 
