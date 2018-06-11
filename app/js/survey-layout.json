@@ -23,6 +23,11 @@
                     "name": "client_poc_email",
                     "title": "Client POC Email",
                     "isRequired": true
+                }, {
+                    "type": "text",
+                    "name": "prep_date",
+                    "title": "Date of Preparation",
+                    "isRequired": true
                 }],
             "title": "Client Data"
         }, {
