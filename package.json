@@ -18,7 +18,7 @@
   "homepage": "https://github.com/Stoke-Dev/mfocus_sales#readme",
   "devDependencies": {
     "browser-sync": "^2.24.4",
-    "gulp": "^4.0.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": ">=5.0.0",
     "gulp-clean-css": "^3.9.4",
     "gulp-sass": "^4.0.1"

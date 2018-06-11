@@ -3,12 +3,11 @@
 let gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync').create(),
-    closureCompiler = require('gulp-closure-compiler'),
     cleanCSS = require('gulp-clean-css'),
     autoprefixer = require('gulp-autoprefixer');
  
 gulp.task('sass', function () {
-  return gulp.src('./app/scss/**/*.scss')
+    return gulp.src('./app/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(cleanCSS())
