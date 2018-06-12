@@ -1,7 +1,6 @@
 {
     "completeText": "Generate Report",
     "showQuestionNumbers": "off",
-    "completedHtml": "Generating Report...\n[coming soon]",
     "showTitle": false,
     "pages": [{
         "name": "sales_questionnaire",
@@ -251,7 +250,7 @@
 
         {
             "type": "panel",
-            "name": "panel1",
+            "name": "ctes",
             "elements": [{
                 "type": "text",
                 "name": "question1",
