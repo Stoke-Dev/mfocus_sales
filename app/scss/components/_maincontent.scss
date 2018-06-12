@@ -1,0 +1,183 @@
+/* Main content */
+
+.mf-maincontent {
+    margin: 20px;
+    width: 100%;
+    background: $header-gray;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    overflow: hidden;
+
+    h1 {
+        margin: 20px 33px 11px;
+    }
+
+    .mf-app-instructions {
+        position: relative;
+        display: block;
+        padding-left: 20px;
+        font-size: 110%;
+        font-weight: bold;
+        margin: 0 30px;
+
+        i {
+            display: block;
+            position: absolute;
+            margin-left: -15px;
+            top: 4px;
+        }
+    }
+
+    .mf-form-container {
+        background-color: $offwhite;
+        //padding-top: 20px;
+        overflow: hidden;
+        border-top: 1px solid rgba(0,0,0,.125);
+        
+        .mf-loading {
+            display: block;
+            text-align: center;
+            padding: 5px 20px;
+            margin-bottom: 20px;
+            font-weight: 100;
+            color: $dark-gray;
+            font-style: italic;
+            font-size: 110%;
+            letter-spacing: 1px;
+        }
+
+        .mf-panel {
+            &.first {
+                padding-top: 20px;
+            }
+            
+            &.last {
+                padding-bottom: 8px;
+                margin-bottom: 0;
+            }
+
+            &, .mf-sub-panel {
+                position: relative;
+                border-left: 3px solid black;
+                padding: 5px 0;
+                margin-bottom: 8px;
+
+                h4 {
+                    padding: 0;
+                    margin: 5px 30px 3px;
+
+                    &.sv_p_title_expandable:hover {
+                        color: $bkg-blue;
+                    }
+
+                    .sv_panel_icon {
+                        float: none;
+                        display: block;
+                        position: absolute;
+                        top: 9px;
+                        left: 8px;
+
+                        &:before {
+                            transition: all .5s;
+                            padding: 8px;
+                            transform: rotate(-90deg);
+                        }
+
+                        &.sv_expanded:before {
+                            transform: rotate(0);
+                        }
+                    }
+                }
+                
+            }
+
+            border-left-color: rgba($bkg-blue, .5) !important;
+
+            .mf-sub-panel {
+                margin-left: 35px;
+                border-left-color: rgba($dark-gray, .4) !important;
+            }
+
+            .mf-question {
+                padding: 10px 35px;
+                overflow: visible;
+                transition: background 1s;
+
+                &.has-error {
+                    background: rgba(red, .1);
+                    border-left: 3px red solid;
+                    animation: pulse-border 2s infinite linear;
+                }
+
+                .content-left {
+                    overflow: visible;
+                }
+
+                h5.mf-question-title {
+                    display: inline-block;
+                    font-weight: normal;
+                    font-size: 150%;
+                    width: 250px;
+                    margin-right: 11px;
+                }
+
+                input {
+                    width: 30%;
+                }
+
+                .mf-error {
+                    margin-top: 5px;
+                    margin-bottom: 0;
+                    float:right;
+                    padding: 0.25rem 1.25rem;
+                }
+            }
+        }
+
+        .sv_complete_btn {
+            background: $bkg-blue;
+            -webkit-appearance: none;
+            border: none;
+            border-radius: 3px;
+            font-size: 140%;
+            padding: 5px 20px;
+            color: white;
+            cursor: pointer;
+
+            &:hover {
+                background: $gradientA;
+            }
+        }
+    }
+}
+
+//Responsive Behavior
+@media (min-width: #{$mobile-sm-breakpoint + 1}) {
+    .mf-maincontent {
+        margin-left: 220px;
+    }
+}
+
+@media (max-width: $mobile-sm-breakpoint) {
+    .mf-maincontent .mf-form-container { 
+        .mf-panel {
+            .mf-question {
+                input, .mf-error {
+                    width: 100%;
+                }
+            }
+            .mf-sub-panel {
+                margin-left: 11px;
+                .mf-question {
+                    input, .mf-error {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+         .sv_complete_btn {
+             width: 100%;
+        }
+    }
+}

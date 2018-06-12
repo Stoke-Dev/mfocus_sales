@@ -1,0 +1,11 @@
+@keyframes pulse-border {
+    0% {
+        border-color: rgba(red, .4);
+    }
+    50% {
+        border-color: red;
+    }
+    100% {
+        border-color: rgba(red, .4);
+    }
+}
