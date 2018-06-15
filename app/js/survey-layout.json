@@ -1,325 +1,436 @@
 {
-    "completeText": "Generate Report",
-    "showQuestionNumbers": "off",
-    "showTitle": false,
-    "pages": [{
-        "name": "sales_questionnaire",
-        "elements": [{
-            "type": "panel",
-            "name": "client_data",
-            "elements": [{
-                    "type": "text",
-                    "name": "client_name",
-                    "title": "Client Name",
-                    "isRequired": true
-                }, {
-                    "type": "text",
-                    "name": "client_poc",
-                    "title": "Client POC",
-                    "isRequired": true
-                }, {
-                    "type": "text",
-                    "name": "client_poc_email",
-                    "title": "Client POC Email",
-                    "isRequired": true
-                }, {
-                    "type": "text",
-                    "name": "prep_date",
-                    "title": "Date of Preparation",
-                    "isRequired": true
-                }],
-            "title": "Client Data"
-        }, {
-            "type": "panel",
-            "name": "fte",
-            "elements": [{
-                "type": "text",
-                "name": "num_ftes",
-                "title": "Number of FTEs"
-            }, {
-                "type": "text",
-                "name": "avg_wage",
-                "title": "Average Wage"
-            }, {
-                "type": "text",
-                "name": "avg_to",
-                "title": "Average Annual Turn-over (%)"
-            }, {
-                "type": "panel",
-                "name": "it_staff",
-                "elements": [{
-                    "type": "text",
-                    "name": "it_wage",
-                    "title": "Average IT Staff Wage"
-                }],
-                "title": "IT Staff"
-            }, {
-                "type": "panel",
-                "name": "fulfilment",
-                "elements": [{
-                    "type": "text",
-                    "name": "sys_simple",
-                    "title": "Number of identity connected systems (simple)"
-                }, {
-                    "type": "text",
-                    "name": "sys_med",
-                    "title": "Number of identity connected systems (medium)"
-                }, {
-                    "type": "text",
-                    "name": "sys_complex",
-                    "title": "Number of identity connected systems (complex)"
-                }, {
-                    "type": "text",
-                    "name": "num_entit",
-                    "title": "Average number of entitlements / staff"
-                }, {
-                    "type": "text",
-                    "name": "staff_in_change",
-                    "title": "Staff in change the business (%)"
-                }, {
-                    "type": "text",
-                    "name": "change_entit",
-                    "title": "Change the business entitlement changes / year"
-                }],
-                "title": "Fulfilment"
-            }, {
-                "type": "panel",
-                "name": "self_service",
-                "elements": [{
-                    "type": "text",
-                    "name": "num_forgot_pass",
-                    "title": "Average # of forgotten passwords / staff /year"
-                }, {
-                    "type": "text",
-                    "name": "cost_helpdesk_call",
-                    "title": "Average cost of helpdesk per call"
-                }, {
-                    "type": "text",
-                    "name": "avg_cost_pass_reset",
-                    "title": "Average cost of helpdesk per password reset"
-                }, {
-                    "type": "text",
-                    "name": "avg_helpdesk_wait_time",
-                    "title": "Average helpdesk wait time (minutes)"
-                }, {
-                    "type": "text",
-                    "name": "percent_self_serve_pass_reset",
-                    "title": "Percentage \"Self Service\" Password Reset"
-                }],
-                "title": "Self Service"
-            }, {
-                "type": "panel",
-                "name": "workflows",
-                "elements": [{
-                    "type": "text",
-                    "name": "Number of identity workflows (simple)"
-                }, {
-                    "type": "text",
-                    "name": "Number of identity workflows (medium)"
-                }, {
-                    "type": "text",
-                    "name": "Number of identity workflows (complex)"
-                }, {
-                    "type": "text",
-                    "name": "Average number of workflows / staff / year"
-                }],
-                "title": "Workflows"
-            }, {
-                "type": "panel",
-                "name": "panel6",
-                "elements": [{
-                    "type": "text",
-                    "name": "question14",
-                    "title": "Average approver wage"
-                }, {
-                    "type": "text",
-                    "name": "question15",
-                    "title": "Average time to approve (mins)"
-                }, {
-                    "type": "text",
-                    "name": "question16",
-                    "title": "Proportion of workflows requiring approvals (%)"
-                }, {
-                    "type": "text",
-                    "name": "question17",
-                    "title": "Decision support time reduction (%)"
-                }],
-                "title": "Decision Analytics"
-            }, {
-                "type": "panel",
-                "name": "panel7",
-                "elements": [{
-                    "type": "text",
-                    "name": "question19",
-                    "title": "Average dev & test time for app P2P for identity"
-                }, {
-                    "type": "text",
-                    "name": "question18",
-                    "title": "Number of applications the require identity"
-                }, {
-                    "type": "text",
-                    "name": "Average number of P2P connections per app"
-                }, {
-                    "type": "text",
-                    "name": "P2P annual maintenance rate"
-                }, {
-                    "type": "text",
-                    "name": "Identity bus dev & test savings rate"
-                }, {
-                    "type": "text",
-                    "name": "Identity bus annual maintenance rate"
-                }],
-                "title": "Identity Bus"
-            }, {
-                "type": "panel",
-                "name": "panel8",
-                "elements": [{
-                    "type": "text",
-                    "name": "question20",
-                    "title": "Number of access connected systems (injection)"
-                }, {
-                    "type": "text",
-                    "name": "question21",
-                    "title": "Number of access connected systems (federation)"
-                }, {
-                    "type": "text",
-                    "name": "question22",
-                    "title": "Average login time (secs) avoided per SSO"
-                }, {
-                    "type": "text",
-                    "name": "question23",
-                    "title": "Effective working days per year"
-                }, {
-                    "type": "text",
-                    "name": "question24",
-                    "title": "Average dev & test time for app customisation"
-                }, {
-                    "type": "text",
-                    "name": "question25",
-                    "title": "Average dev & test time for app customisation"
-                }, {
-                    "type": "text",
-                    "name": "question26",
-                    "title": "Number of applications that require access"
-                }, {
-                    "type": "text",
-                    "name": "question27",
-                    "title": "Custom access annual maintenance rate"
-                }, {
-                    "type": "text",
-                    "name": "question28",
-                    "title": "access bus dev & test savings rate"
-                }, {
-                    "type": "text",
-                    "name": "question29",
-                    "title": "access bus annual maintenance rate"
-                }],
-                "title": "Single Sign On"
-            }, {
-                "type": "panel",
-                "name": "panel9",
-                "elements": [{
-                    "type": "text",
-                    "name": "question30",
-                    "title": "Completeness of access revocations (%)"
-                }, {
-                    "type": "text",
-                    "name": "question31",
-                    "title": "Average risk impact per entitlement"
-                }, {
-                    "type": "text",
-                    "name": "question32",
-                    "title": "Average OpEx per entitlement"
-                }, {
-                    "type": "text",
-                    "name": "question33",
-                    "title": "Password breach likelihood"
-                }, {
-                    "type": "text",
-                    "name": "question34",
-                    "title": "Push notification break likelihood"
-                }, {
-                    "type": "text",
-                    "name": "question35",
-                    "title": "Proportion of stale (unused) entitlements"
-                }],
-                "title": "Governance"
-            }],
-            "title": "Full Time Employees (FTEs)"
-        },
+	"completeText": "Generate Report",
+	"showQuestionNumbers": "off",
+	"showTitle": false,
+	"pages": [{
+		"name": "sales_questionnaire",
+		"elements": [{
+				"title": "Client Contact Information",
+				"type": "panel",
+				"name": "client_data",
+				"elements": [{
+					"type": "text",
+					"name": "client_name",
+					"title": "Organization Name",
+					"isRequired": true
+				}, {
+					"type": "text",
+					"name": "client_poc",
+					"title": "POC Name",
+					"isRequired": true
+				}, {
+					"type": "text",
+					"name": "client_poc_email",
+					"title": "POC Email",
+					"isRequired": true
+				}, {
+					"type": "text",
+					"name": "prep_date",
+					"title": "Date of Preparation",
+					"inputType": "date",
+					"isRequired": true
+				}]
+			},
 
-        {
-            "type": "panel",
-            "name": "ctes",
-            "elements": [{
-                "type": "text",
-                "name": "question1",
-                "title": "Number of CTEs",
-                "inputType": "number"
-            }, {
-                "type": "text",
-                "name": "question2",
-                "title": "Average Wage"
-            }, {
-                "type": "text",
-                "name": "question3",
-                "title": "Average Annual Turn-over (%)"
-            }, {
-                "type": "panel",
-                "name": "panel9",
-                "elements": [{
-                    "type": "text",
-                    "name": "question30",
-                    "title": "[Field Title]"
-                }],
-                "title": "Fulfilment"
-            },{
-                "type": "panel",
-                "name": "panel9",
-                "elements": [{
-                    "type": "text",
-                    "name": "question30",
-                    "title": "[Field Title]"
-                }],
-                "title": "Self Service"
-            },{
-                "type": "panel",
-                "name": "panel9",
-                "elements": [{
-                    "type": "text",
-                    "name": "question30",
-                    "title": "[Field Title]"
-                }],
-                "title": "Workflows"
-            },{
-                "type": "panel",
-                "name": "panel9",
-                "elements": [{
-                    "type": "text",
-                    "name": "question30",
-                    "title": "[Field Title]"
-                }],
-                "title": "Decision Analytics"
-            },{
-                "type": "panel",
-                "name": "panel9",
-                "elements": [{
-                    "type": "text",
-                    "name": "question30",
-                    "title": "[Field Title]"
-                }],
-                "title": "Single Sign On"
-            },{
-                "type": "panel",
-                "name": "panel9",
-                "elements": [{
-                    "type": "text",
-                    "name": "question30",
-                    "title": "[Field Title]"
-                }],
-                "title": "Governance"
-            }],
-            "title": "Casual Employees (CTEs)"
-        }]
-    }]
+			{
+				"title": "Client Data",
+				"type": "panel",
+				"name": "data_panel",
+				"elements": [{
+						"type": "html",
+						"name": "helper",
+						"title": "Client Data",
+						"html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p><p><button type='button' data-ex-all>Expand All</button></p>"
+					},
+
+					{
+						"title": "Full Time Employees (FTEs)",
+						"type": "panel",
+						"name": "fte",
+						"elements": [{
+                            "type": "html",
+                            "name": "helper",
+                            "title": "Client Data",
+                            "html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p><p><button type='button' data-ex-sub='fte'>Expand Subsections</button></p>"
+                        }, {
+							"type": "text",
+							"name": "FTES_num",
+							"title": "Number of FTEs"
+						}, {
+							"type": "text",
+							"name": "FTES_Wage",
+							"title": "Average Wage"
+						}, {
+							"type": "text",
+							"name": "FTES_annual_turn_over",
+							"title": "Average Annual Turn-over (%)"
+						}, {
+							"title": "IT Staff",
+							"type": "panel",
+							"name": "it_staff",
+							"elements": [{
+								"type": "text",
+								"name": "Average_IT_staff_wage",
+								"title": "Average IT Staff Wage"
+							}]
+						}, {
+							"title": "Fulfilment",
+							"type": "panel",
+							"name": "fulfilment",
+							"elements": [{
+								"type": "text",
+								"name": "FTES_id_conn_simple",
+								"title": "Number of identity connected systems (simple)"
+							}, {
+								"type": "text",
+								"name": "FTES_id_conn_simple_cost",
+								"title": "Cost of identity connected systems (simple)"
+							}, {
+								"type": "text",
+								"name": "FTES_id_conn_medium",
+								"title": "Number of identity connected systems (medium)"
+							}, {
+								"type": "text",
+								"name": "FTES_id_conn_medium_cost",
+								"title": "Cost of identity connected systems (medium)"
+							}, {
+								"type": "text",
+								"name": "FTES_id_conn_complex",
+								"title": "Number of identity connected systems (complex)"
+							}, {
+								"type": "text",
+								"name": "FTES_id_conn_complex_cost",
+								"title": "Cost of identity connected systems (complex)"
+							}, {
+								"type": "text",
+								"name": "FTES_average_prov_cost",
+								"title": "Average costs"
+							}, {
+								"type": "text",
+								"name": "FTES_n_entitlements",
+								"title": "Average number of entitlements / staff"
+							}, {
+								"type": "text",
+								"name": "FTES_Change_Biz",
+								"title": "Staff in change the business (%)"
+							}, {
+								"type": "text",
+								"name": "FTES_Change_Biz_ent",
+								"title": "Change the business entitlement changes / year"
+							}]
+						}, {
+							"title": "Self Service",
+							"type": "panel",
+							"name": "self_service",
+							"elements": [{
+								"type": "text",
+								"name": "FTES_password_forgets",
+								"title": "Average # of forgotten passwords / staff /year"
+							}, {
+								"type": "text",
+								"name": "Helpdesk_call_cost",
+								"title": "Average cost of helpdesk per call"
+							}, {
+								"type": "text",
+								"name": "Helpdesk_password_reset_cost",
+								"title": "Average cost of helpdesk per password reset"
+							}, {
+								"type": "text",
+								"name": "Helpdesk_av_wait",
+								"title": "Average helpdesk wait time (minutes)"
+							}, {
+								"type": "text",
+								"name": "FTES_SSPR_rate",
+								"title": "Percentage \"Self Service\" Password Reset"
+							}]
+						}, {
+							"title": "Workflows",
+							"type": "panel",
+							"name": "workflows",
+							"elements": [{
+								"type": "text",
+								"title": "Number of identity workflows (simple)",
+								"name": "FTES_id_wf_simple"
+							}, {
+								"type": "text",
+								"title": "Cost of identity workflows (simple)",
+								"name": "FTES_id_wf_simple_cost"
+							}, {
+								"type": "text",
+								"title": "Number of identity workflows (medium)",
+								"name": "FTES_id_wf_medium"
+							}, {
+								"type": "text",
+								"title": "Cost of identity workflows (medium)",
+								"name": "FTES_id_wf_medium_cost"
+							}, {
+								"type": "text",
+								"title": "Number of identity workflows (complex)",
+								"name": "FTES_id_wf_comple"
+							}, {
+								"type": "text",
+								"title": "Cost of identity workflows (complex)",
+								"name": "FTES_id_wf_complex_cost"
+							}, {
+								"type": "text",
+								"title": "Average workflow savings",
+								"name": "FTES_average_wf_cost"
+							}, {
+								"type": "text",
+								"title": "Average number of workflows / staff / year",
+								"name": "FTES_workflows_yr"
+							}]
+						}, {
+							"title": "Decision Analytics",
+							"type": "panel",
+							"name": "decision_analytics",
+							"elements": [{
+								"type": "text",
+								"name": "FTES_approv_wage",
+								"title": "Average approver wage"
+							}, {
+								"type": "text",
+								"name": "FTES_approv_time",
+								"title": "Average time to approve (mins)"
+							}, {
+								"type": "text",
+								"name": "FTES_approv_manual",
+								"title": "Proportion of workflows requiring approvals (%)"
+							}, {
+								"type": "text",
+								"name": "FTES_approv_savings_rate",
+								"title": "Decision support time reduction (%)"
+							}]
+						}, {
+							"title": "Identity Bus",
+							"type": "panel",
+							"name": "identity_bus",
+							"elements": [{
+								"type": "text",
+								"name": "FTES_P2P_dev_hrs",
+								"title": "Average dev & test time for app P2P for identity (hours)"
+							}, {
+								"type": "text",
+								"name": "FTES_id_apps",
+								"title": "Number of applications the require identity"
+							}, {
+								"type": "text",
+								"title": "Average number of P2P connections per app",
+								"name": "FTES_id_apps_conn"
+							}, {
+								"type": "text",
+								"title": "P2P annual maintenance rate",
+								"name": "FTES_P2P_apps_mtce"
+							}, {
+								"type": "text",
+								"title": "Identity bus annual maintenance rate",
+								"name": "FTES_IB_apps_mtce"
+							}]
+						}, {
+							"title": "Single Sign On",
+							"type": "panel",
+							"name": "sso",
+							"elements": [{
+								"type": "text",
+								"name": "FTES_AM_inj",
+								"title": "Number of access connected systems (injection)"
+							}, {
+								"type": "text",
+								"name": "FTES_AM_fed",
+								"title": "Number of access connected systems (federation)"
+							}, {
+								"type": "text",
+								"name": "FTES_AM_avg_login_time",
+								"title": "Average login time (secs) avoided per SSO"
+							}, {
+								"type": "text",
+								"name": "FTES_working_days",
+								"title": "Effective working days per year"
+							}, {
+								"type": "text",
+								"name": "FTES_cust_AM_dev_hrs",
+								"title": "Average dev & test time for app customisation (hours)"
+							}, {
+								"type": "text",
+								"name": "FTES_AM_apps",
+								"title": "Number of applications that require access"
+							}, {
+								"type": "text",
+								"name": "FTES_AM_cust_apps_mtce",
+								"title": "Custom access annual maintenance rate"
+							}, {
+								"type": "text",
+								"name": "FTES_AB_apps_mtce",
+								"title": "Access bus annual maintenance rate"
+							}]
+						}, {
+							"title": "Governance",
+							"type": "panel",
+							"name": "governance",
+							"elements": [{
+								"type": "text",
+								"name": "FTES_revocation_acc",
+								"title": "Completeness of access revocations (%)"
+							}, {
+								"type": "text",
+								"name": "FTES_av_ent_risk_impact",
+								"title": "Average risk impact per entitlement"
+							}, {
+								"type": "text",
+								"name": "FTES_av_opex_ent",
+								"title": "Average OpEx per entitlement"
+							}, {
+								"type": "text",
+								"name": "FTES_password_breach_likelihood",
+								"title": "Password breach likelihood"
+							}, {
+								"type": "text",
+								"name": "FTES_push_notification_likelihood",
+								"title": "Push notification break likelihood"
+							}, {
+								"type": "text",
+								"name": "FTES_stale_entitlement_rate",
+								"title": "Proportion of stale (unused) entitlements"
+							}, {
+								"type": "text",
+								"name": "FTES_man_compliance_reports",
+								"title": "Manual Compliance reports required per year"
+							}, {
+								"type": "text",
+								"name": "FTES_num_app_monitor",
+								"title": "No. of Applications for on-going monitoring"
+							}, {
+								"type": "text",
+								"name": "FTES_avg_time_per_app_compliance_report",
+								"title": "Average Time Spent per Application on Compliance reporting (hours)"
+							}, {
+								"type": "text",
+								"name": "FTES_num_compliance_staff",
+								"title": "No. of Staff Involved for compliance"
+							}]
+						}]
+					},
+
+					{
+						"title": "Casual Employees (CTEs)",
+						"type": "panel",
+						"name": "ctes",
+						"elements": [{
+                            "type": "html",
+                            "name": "helper",
+                            "title": "Client Data",
+                            "html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p><p><button type='button' data-ex-sub='ctes'>Expand Subsections</button></p>"
+                        }, {
+							"type": "text",
+							"name": "CTES_num",
+							"title": "Number of CTEs",
+							"inputType": "number"
+						}, {
+							"type": "text",
+							"name": "CTES_Wage",
+							"title": "Average Wage"
+						}, {
+							"type": "text",
+							"name": "CTES_annual_turn_over",
+							"title": "Average Annual Turn-over (%)"
+						}, {
+							"title": "Fulfilment",
+							"type": "panel",
+							"name": "fulfilment",
+							"elements": [{
+								"type": "text",
+								"name": "CTES_n_entitlements",
+								"title": "Average number of entitlements / staff"
+							}]
+						}, {
+							"title": "Self Service",
+							"type": "panel",
+							"name": "self_service",
+							"elements": [{
+								"type": "text",
+								"name": "CTES_passwords_forgets",
+								"title": "Average # of forgotten passwords / staff /year"
+							}, {
+								"type": "text",
+								"name": "CTES_SSPR_rate",
+								"title": "Percentage \"Self Service\" Password Reset"
+							}]
+						}, {
+							"title": "Workflows",
+							"type": "panel",
+							"name": "workflows",
+							"elements": [{
+								"type": "text",
+								"name": "CTES_workflows_yr",
+								"title": "Average number of workflows / staff / year"
+							}]
+						}, {
+							"title": "Decision Analytics",
+							"type": "panel",
+							"name": "decision_analytics",
+							"elements": [{
+								"type": "text",
+								"name": "CTES_approv_manual",
+								"title": "Proportion of workflows requiring approvals (%)"
+							}]
+						}, {
+							"title": "Single Sign On",
+							"type": "panel",
+							"name": "sso",
+							"elements": [{
+								"type": "text",
+								"name": "CTES_AM_inj",
+								"title": "Number of access connected systems (injection)"
+							}, {
+								"type": "text",
+								"name": "CTES_AM_fed",
+								"title": "Number of access connected systems (federation)"
+							}]
+						}, {
+							"title": "Governance",
+							"type": "panel",
+							"name": "governance",
+							"elements": [{
+								"type": "text",
+								"name": "CTES_revocation_acc",
+								"title": "Completeness of access revocations (%)"
+							}, {
+								"type": "text",
+								"name": "CTES_av_ent_risk_impact",
+								"title": "Average risk impact per entitlement"
+							}, {
+								"type": "text",
+								"name": "CTES_av_opex_ent",
+								"title": "Average OpEx per entitlement"
+							}, {
+								"type": "text",
+								"name": "CTES_stale_entitlement_rate",
+								"title": "Proportion of stale (unused) entitlements"
+							}]
+						}]
+					},
+
+					{
+						"title": "Number of Customers (CUST)",
+						"type": "panel",
+						"name": "cust",
+						"elements": [{
+                            "type": "html",
+                            "name": "helper",
+                            "title": "Client Data",
+                            "html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p><p style='display:none;'><button type='button' data-ex-sub='cust'>Expand Subsections</button></p>"
+                        }, {
+							"type": "text",
+							"name": "CUST_avg_val",
+							"title": "Average annual customer value"
+						}, {
+							"type": "text",
+							"name": "CUST_active",
+							"title": "Active customers (%)"
+						}]
+					}
+				]
+			}
+		]
+	}]
 }

@@ -90,12 +90,11 @@
                 }
                 
             }
-
-            border-left-color: rgba($bkg-blue, .5) !important;
+            border-left-color: rgba($dark-gray, .4) !important;
 
             .mf-sub-panel {
                 margin-left: 35px;
-                border-left-color: rgba($dark-gray, .4) !important;
+                border-left-color: rgba($bkg-blue, .5) !important;
             }
 
             .mf-question {
@@ -130,6 +129,11 @@
                     margin-bottom: 0;
                     float:right;
                     padding: 0.25rem 1.25rem;
+                }
+
+                .mf-helper-header {
+                    padding: 0;
+                    margin: 5px 30px 3px;
                 }
             }
         }
