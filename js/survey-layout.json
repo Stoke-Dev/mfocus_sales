@@ -315,6 +315,7 @@
 						"title": "Casual Employees (CTEs)",
 						"type": "panel",
 						"name": "ctes",
+						"color": "alpha",
 						"elements": [{
                             "type": "html",
                             "name": "helper",
@@ -411,7 +412,7 @@
 					},
 
 					{
-						"title": "Number of Customers (CUST)",
+						"title": "Customers (CUST)",
 						"type": "panel",
 						"name": "cust",
 						"elements": [{
@@ -420,6 +421,10 @@
                             "title": "Client Data",
                             "html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p><p style='display:none;'><button type='button' data-ex-sub='cust'>Expand Subsections</button></p>"
                         }, {
+							"type": "text",
+							"name": "CUST_num",
+							"title": "Number of Customers"
+						}, {
 							"type": "text",
 							"name": "CUST_avg_val",
 							"title": "Average annual customer value"

@@ -84,7 +84,8 @@ let CTES_revocation_acc,
     CTES_stale_entitlement_rate;
 
 //CUST,
-let CUST_avg_val,
+let CUST_num,
+    CUST_avg_val,
     CUST_active;
 
 
