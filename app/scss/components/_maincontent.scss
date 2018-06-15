@@ -94,8 +94,21 @@
 
             .mf-sub-panel {
                 margin-left: 35px;
-                border-left-color: rgba($bkg-blue, .5) !important;
             }
+
+            $nesting-colors: (p-fte:$gradientA, p-ctes:$bootstrap-blue, p-cust:$bkg-blue);
+
+            @each $t, $c in $nesting-colors{
+                .mf-sub-panel.#{$t} {
+                    border-left-color: rgba($c, .5) !important;
+    
+                    .mf-sub-panel {
+                        border-left-color: rgba($c, .3) !important;
+                    }
+                }
+            }
+
+            
 
             .mf-question {
                 padding: 10px 35px;
