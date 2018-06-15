@@ -18,13 +18,13 @@ $(document).ready(function(){
 
             b.cssClasses.row = "mf-survey-row";
 
-            if (b.panel.name != "client_data") {
+            if (b.panel.name != "client_data" && b.panel.name != "data_panel") {
                 b.panel.state = "collapsed";
             }
             
             if (b.panel.name == "client_data") {
                 b.cssClasses.panel.container = "sv_p_container first mf-panel";
-            } else if (b.panel.name == "ctes") {
+            } else if (b.panel.name == "data_panel") {
                 b.cssClasses.panel.container = "sv_p_container last mf-panel";
             } else if (b.panel.parent && b.panel.parent.isPanel) {
                 b.cssClasses.panel.container = "sv_p_container mf-sub-panel";
@@ -40,12 +40,71 @@ $(document).ready(function(){
             b.cssClasses.error.root = "alert alert-danger mf-error";
             b.cssClasses.error.icon = "fas fa-exclamation-triangle";
             b.question.requiredErrorText = "This information is required."
-
-            console.log(b)
-
         });
 
         $("#surveyElement").Survey({model:survey});
+
+        $("[data-ex-all]").click((e)=>{
+            let button = $(e.target);
+
+            if ( button.attr("data-state") == "expanded" ) {
+                survey.getAllPanels().map((a)=>{
+                    if (a.parent.name == "data_panel") {
+                        a.collapse();
+                    }
+                });
+                button.attr("data-state", "");
+                button.html("Expand All");
+            } else {
+                survey.getAllPanels().map((a)=>{
+                    if (a.parent.name == "data_panel") {
+                        a.expand();
+                    }
+                });
+                button.attr("data-state", "expanded");
+                button.html("Collapse All");
+            }
+        });
+
+        $("[data-ex-sub]").click((e)=>{
+            let button = $(e.target);
+
+            let panel = survey.getAllPanels().find((a)=>{
+                return a.name == button.attr("data-ex-sub");
+            });
+            
+            if ( button.attr("data-state") == "expanded" ) {
+                panel.elements.map((a)=>{
+                    if (a.isPanel) {
+                        a.collapse();
+                    }
+                });
+                button.attr("data-state", "");
+                button.html("Expand Subsections");
+            } else {
+                panel.elements.map((a)=>{
+                    if (a.isPanel) {
+                        a.expand();
+                    }
+                });
+                button.attr("data-state", "expanded");
+                button.html("Collapse Subsections");
+            }
+        });
+
+        $("#mf_quick_directory").html(()=>{
+            let markup = "";
+
+            survey.getAllPanels().map((a)=>{
+                if (a.parent.isPanel) {
+                   markup += `<ul><li>${a.title}</li></ul>`;
+                } else {
+                   markup += `<li>${a.title}</li>`;
+                }
+            });
+
+            return markup;
+        });
 
         console.log("JSON LOADED: SUCCESS");
     })
