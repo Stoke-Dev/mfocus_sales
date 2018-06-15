@@ -21,6 +21,30 @@
     }
 }
 
+#mf_quick_directory {
+
+    li {
+        overflow: hidden;
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer;
+
+        &:hover {
+            color: rgba(white, .5);
+        }
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+        li:before {
+            content: '-';
+            padding-left: 5px;
+        }
+    }
+}
+
 //Responsive Behavior
 @media (min-width: #{$mobile-sm-breakpoint + 1}) {
     .mf-sidebar {
