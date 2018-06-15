@@ -53,9 +53,13 @@ let FTES_AM_inj,
 let FTES_revocation_acc,
     FTES_av_ent_risk_impact,
     FTES_av_opex_ent,
-    password_breach_likelihood,
-    push_notification_likelihood,
-    stale_entitlement_rate;
+    FTES_password_breach_likelihood,
+    FTES_push_notification_likelihood,
+    FTES_stale_entitlement_rate,
+    FTES_man_compliance_reports,
+    FTES_num_app_monitor,
+    FTES_avg_time_per_app_compliance_report,
+    FTES_num_compliance_staff;
 
 // CTES,
 let CTES_num,
