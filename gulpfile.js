@@ -15,9 +15,11 @@ let gulp = require('gulp'),
 gulp.task('sass', function () {
     console.log("Running SASS Compiler + Minifying")
     return gulp.src('./app/scss/**/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(cleanCSS())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/css'))
     .pipe(browserSync.stream());
 });
