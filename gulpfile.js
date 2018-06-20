@@ -14,7 +14,7 @@ let gulp = require('gulp'),
  
 gulp.task('sass', function () {
     console.log("Running SASS Compiler + Minifying")
-    return gulp.src('./app/scss/**/*.scss')
+    return gulp.src('app/scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
@@ -26,12 +26,12 @@ gulp.task('sass', function () {
 
 gulp.task('babel', function () {
     console.log("Running Babel Transpiler + Minifying")
-    return gulp.src("app/**/*.js")
+    return gulp.src('app/js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel({
         presets: ['env']
     }))
-    .pipe(concat('app.js'))
+    //.pipe(concat('app.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/js'))
