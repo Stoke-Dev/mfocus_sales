@@ -8,7 +8,9 @@ let gulp = require('gulp'),
     babel = require('gulp-babel'),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    clean = require('gulp-clean'),
+    runSequence = require('run-sequence');
  
 gulp.task('sass', function () {
     console.log("Running SASS Compiler + Minifying")
@@ -33,20 +35,24 @@ gulp.task('babel', function () {
     .pipe(gulp.dest('dist/js'))
 });
 
-gulp.task('build', ['sass', 'babel'])
+gulp.task('build', function () {
+    runSequence('flush-dist',
+                ['sass', 'babel', 'move-static']);
+})
 
 gulp.task('flush-dist', function () {
+    console.log("Clearing /dist")
     return gulp.src('dist', {read: false})
         .pipe(clean());
 });
 
 gulp.task('move-static', function() {
     let filesToMove = [
-        'fonts/**/*.*',
-        'img/**/*.*',
-        'data/**/*.*',
-        'index.html',
-        'favicon.ico'
+        './app/fonts/**/*.*',
+        './app/img/**/*.*',
+        './app/data/**/*.*',
+        './app/index.html',
+        './app/favicon.ico'
     ];
 
     // the base option sets the relative root for the set of files,
@@ -54,8 +60,6 @@ gulp.task('move-static', function() {
     return gulp.src(filesToMove, { base: './app/' })
         .pipe(gulp.dest('dist'));
 });
-
-gulp.task('rebuild-static', ['flush-dist', 'move-static'])
 
 gulp.task('serve', ['build'], function() {
 
@@ -65,9 +69,9 @@ gulp.task('serve', ['build'], function() {
         }
     });
 
-    gulp.watch('./app/scss/**/*.scss', ['sass']);
-    gulp.watch("app/**/*.html").on('change', browserSync.reload);
-    gulp.watch("app/**/*.json").on('change', browserSync.reload);
+    gulp.watch("app/scss/**/*.scss", ['sass']);
+    gulp.watch("app/**/*.html", ['move-static']).on('change', browserSync.reload);
+    gulp.watch("app/**/*.json", ['move-static']).on('change', browserSync.reload);
     gulp.watch("app/**/*.js", ['babel']).on('change', browserSync.reload);
 
 });
