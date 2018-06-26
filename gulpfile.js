@@ -30,8 +30,7 @@ gulp.task('babel', function () {
     .pipe(sourcemaps.init())
     .pipe(babel({
         presets: ['env']
-    }))
-    //.pipe(concat('app.js'))
+    }).on('error', babelErrorHandler))
     .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/js'))
@@ -79,3 +78,9 @@ gulp.task('serve', ['build'], function() {
 });
 
 gulp.task('default', ['serve']);
+
+function babelErrorHandler (err) {
+    console.error(err.message);
+    browserSync.notify(err.message); // Display error in the browser
+    this.emit('end'); // Prevent gulp from catching the error and exiting the watch process
+}
