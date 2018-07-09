@@ -5,31 +5,72 @@
 	"pages": [{
 		"name": "sales_questionnaire",
 		"elements": [{
-				"title": "Client Contact Information",
+				"title": "Report Information",
 				"type": "panel",
 				"name": "client_data",
 				"elements": [{
-					"type": "text",
-					"name": "client_name",
-					"title": "Organization Name",
-					"isRequired": true
-				}, {
-					"type": "text",
-					"name": "client_poc",
-					"title": "POC Name",
-					"isRequired": true
-				}, {
-					"type": "text",
-					"name": "client_poc_email",
-					"title": "POC Email",
-					"isRequired": true,
-					"inputType": "email"
+					"type": "html",
+					"name": "helper",
+					"title": "Client Data",
+					"html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p>"
 				}, {
 					"type": "text",
 					"name": "prep_date",
 					"title": "Date of Preparation",
 					"inputType": "date",
 					"isRequired": true
+				}, {
+					"type": "multipletext",
+					"name": "prep",
+					"title": "Micro Focus Representative (Rep)",
+					"colCount": 3,
+					"isRequired": true,
+					"items": [
+						{
+							"name": "prep_name",
+							"title": "Rep Name"
+						}, {
+							"name": "prep_email",
+							"title": "Rep Email"
+						}, {
+							"name": "prep_other",
+							"title": "Additional Info"
+						}
+					]
+				}]
+			}, {
+				"title": "Client Contact Information",
+				"type": "panel",
+				"name": "client_data",
+				"elements": [{
+					"type": "html",
+					"name": "helper",
+					"title": "Client Data",
+					"html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p>"
+				}, {
+					"type": "text",
+					"name": "client_name",
+					"title": "Organization Name",
+					"isRequired": true
+				}, {
+					"type": "multipletext",
+					"name": "client_poc",
+					"title": "Organization Point of Contact (POC)",
+					"colCount": 3,
+					"isRequired": true,
+					"items": [
+						{
+							"name": "poc_name",
+							"title": "POC Name"
+						}, {
+							"name": "poc_email",
+							"title": "POC Email",
+							"inputType": "email"
+						}, {
+							"name": "poc_other",
+							"title": "Additional Info"
+						}
+					]
 				}]
 			},
 
@@ -42,9 +83,7 @@
 						"name": "helper",
 						"title": "Client Data",
 						"html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p><p><button type='button' data-ex-all>Expand All</button></p>"
-					},
-
-					{
+					}, {
 						"title": "Full Time Employees (FTEs)",
 						"type": "panel",
 						"name": "fte",
