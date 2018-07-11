@@ -52,6 +52,7 @@ gulp.task('move-static', function() {
         './app/fonts/**/*.*',
         './app/img/**/*.*',
         './app/data/**/*.*',
+        './app/lib/**/*.*',
         './app/index.html',
         './app/favicon.ico'
     ];
