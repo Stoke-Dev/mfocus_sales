@@ -1,4 +1,4 @@
-var surveyJSON, survey, results;
+var surveyJSON, survey, results, doc;
 
 Survey.Survey.cssType = "bootstrap";
 
@@ -10,7 +10,7 @@ $(document).ready(function(){
 
         survey = new Survey.Model(surveyJSON);
 
-        survey.completedHtml = "<div style='text-align:center; margin:11px;'><h3 style='margin-bottom:11px;'>Generating Report...</h3><em>[coming soon]</em><br><img style='width: 70%; display:inline-block;' src='img/Micro_Focus_SalesROI_Results_v1.png' /></div><div id='results_listing'></div>",
+        survey.completedHtml = "<div style='text-align:center; margin:11px;'><h3 style='margin-bottom:11px;'>Report Generated...</h3><div id='results_listing'></div>",
         survey.onComplete.add(sendDataToServer);
         survey.questionTitleLocation = "left";
         survey.setValue('prep_date', toDatestring());
@@ -153,25 +153,12 @@ function populateFields(){
 function sendDataToServer(survey) {
     results = ROI_OBJECT(survey.data);
 
+    doc = computePDF(results);
 
     $("#results_listing").html(function(){
         let html = "";
 
-        for (let key in results.formData) {
-            html += `${key}: ${results.formData[key]}<br>`;
-        }
-
-        html += "<br>CALC<br>"
-
-        html += `FTES_average_prov_cost: ${results.computedData.FTES_average_prov_cost()}<br>`
-        html += `FTES_average_wf_cost: ${results.computedData.FTES_average_wf_cost()}<br>`
-
-        for (let range in results.doNothingOption) {
-            html += `--${range}:<br>`;
-            for (let key in results.doNothingOption[range]) {
-                html += `${key}: ${results.doNothingOption[range][key]()}<br>`;
-            }
-        }
+        html += "<a href='#' onclick='genPDF()'>Download</a><br>"
 
         return html;
     });
@@ -441,4 +428,154 @@ function toDatestring(date = new Date()) {
     } 
     var datestring = yyyy+'-'+mm+'-'+dd;
     return datestring
+}
+
+
+function computePDF(data) {
+    var URI;
+
+    var statusBarMessage = (t)=>{console.log(t)}
+
+    statusBarMessage("Loading Charts...")
+
+    var canvas = document.createElement('canvas');
+    canvas.width = 1009;
+    canvas.height = 577;
+
+    statusBarMessage("Generating PDF...")
+
+    let doc = new jsPDF({
+        orientation: 'l',
+        unit: 'in',
+        format: 'letter'
+    })
+
+    doc.text(`Prepared For: ${data.formData.client_name}`, 1, 1)
+
+    doc.text('notice: could not to compile remaining data...', 1, 7)
+
+    function chartToPDF() {
+        ctx.textAlign = "right";
+        ctx.font = "bold 14pt Arial"
+        ctx.fillStyle = "rgba(255,255,255,.95)"
+        ctx.fillText("Micro Focus", 975, 530)
+
+        ctx.textAlign = "right";
+        ctx.font = "bold 14pt Arial"
+        ctx.fillStyle = "rgba(204, 54, 49, 0.95)"
+        ctx.fillText("Do Nothing", 900, 300)
+
+        statusBarMessage("Compiling Elements...")
+        URI = myChart.toBase64Image("image/png")
+        doc.addImage(URI, 'PNG', 1, 1, 9, 5.15)
+        statusBarMessage("Done!")
+    }
+
+    let mf_cumulative = {
+        year2: data.total_costs.year1.mf_solution() + data.total_costs.year2.mf_solution(),
+        year3: ()=>(mf_cumulative.year2 + data.total_costs.year3.mf_solution()),
+        year4: ()=>(mf_cumulative.year3() + data.total_costs.year4.mf_solution())
+    }
+
+    let dn_cumulative = {
+        year2: data.total_costs.year1.do_nothing() + data.total_costs.year2.do_nothing(),
+        year3: ()=>(dn_cumulative.year2 + data.total_costs.year3.do_nothing()),
+        year4: ()=>(dn_cumulative.year3() + data.total_costs.year4.do_nothing())
+    }
+
+    statusBarMessage("Rendering Images...")
+    var ctx = canvas.getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["Year 0", "Year 1", "Year 2", "Year 3", "Year 4", "Year 5"],
+            datasets: [{
+                data: [0, data.total_costs.year1.mf_solution(), mf_cumulative.year2, mf_cumulative.year3(), mf_cumulative.year4(), data.total_costs.total.mf_solution()],
+                backgroundColor: 'rgba(74, 116, 181, .99)',
+                borderWidth: 0,
+                borderColor: 'transparent',
+                pointBackgroundColor: 'rgb(74, 116, 181)',
+                pointBorderColor: 'rgba(255,255,255,.1)',
+                pointRadius: [0, 7, 7, 7, 7, 7],
+                datalabels: {
+                    align: -135,
+                    offset: 8,
+                    font: {
+                        size: 16,
+                    },
+                    formatter: function(v,cx) {
+                        if (0 == cx.dataIndex){return ''}
+                        return `Year ${cx.dataIndex}: $${Math.round(v)}`
+                    }
+                }
+            }, {
+                data: [0, data.total_costs.year1.do_nothing(), dn_cumulative.year2, dn_cumulative.year3(), dn_cumulative.year4(), data.total_costs.total.do_nothing()],
+                backgroundColor: 'rgba(204, 54, 49, 0.41)',
+                borderWidth: 0,
+                borderColor: 'transparent',
+                pointBackgroundColor: 'rgba(204, 54, 49, 1)',
+                pointRadius: [0, 8, 8, 8, 8, 8],
+                datalabels: {
+                    align: -135,
+                    offset: 8,
+                    textAlign: "right",
+                    font: {
+                        size: 14
+                    },
+                    formatter: function(v,cx) {
+                        if (0 == cx.dataIndex){return ''}
+                        return `Year ${cx.dataIndex}: $${Math.round(v)}`
+                    }
+                }
+            }]
+        },
+        options: {
+            responsive: false,
+            layout: {
+                padding: 8,
+            },
+            animation: {
+                duration: 1,
+                onComplete: chartToPDF
+            },
+            legend: {
+                display: false,
+            },
+            scales: {
+                xAxes:[{
+                    gridLines: {
+                        color: 'rgb(223,230,241)',
+                        drawTicks: false,
+                    },
+                    ticks: {
+                        display: false,
+                        stepSize: 10,
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        color: 'rgb(223,230,241)',
+                        drawTicks: false,
+                    },
+                    ticks: {
+                        display: false,
+                        beginAtZero: true,
+                        stepSize: 100000
+                    }
+                }]
+            }
+        }
+    });
+    
+    return doc;
+
+}
+
+
+function genPDF(){
+    if (doc) {
+        doc.save('two-by-four.pdf')
+    } else {
+        statusBarMessage("No PDF")
+    }
 }
