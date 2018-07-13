@@ -13,6 +13,7 @@ $(document).ready(function(){
         survey.completedHtml = "<div style='text-align:center; margin:11px;'><h3 style='margin-bottom:11px;'>Generating Report...</h3><em>[coming soon]</em><br><img style='width: 70%; display:inline-block;' src='img/Micro_Focus_SalesROI_Results_v1.png' /></div><div id='results_listing'></div>",
         survey.onComplete.add(sendDataToServer);
         survey.questionTitleLocation = "left";
+        survey.setValue('prep_date', toDatestring());
         survey.onUpdatePanelCssClasses.add((a,b)=>{
             b.cssClasses.row = "mf-survey-row";
 
@@ -37,6 +38,7 @@ $(document).ready(function(){
             b.cssClasses.error.root = "alert alert-danger mf-error";
             b.cssClasses.error.icon = "fas fa-exclamation-triangle";
             b.question.requiredErrorText = "This information is required."
+            b.cssClasses.itemTitle = "mf-item-title"
         });
 
         $("#surveyElement").Survey({model:survey});
@@ -130,12 +132,19 @@ function populateFields(){
         return -1;
     }
 
+    $("#surveyElement").html("<h1>Loading...</h1>");
+
+    survey.clear();
+    
     let count = 0;
-    for (let index = 0; index < survey.getAllQuestions().length; index++) {
-        var el = survey.getAllQuestions()[index]
+    let qs = survey.getAllQuestions();
+    for (let index = 0; index < qs.length; index++) {
+        var el = qs[index]
         el.value = results.formData[el.name];
         count++;
     }
+
+    survey.render();
 
     return count;
 }
@@ -417,4 +426,19 @@ let ROI_OBJECT = function( obj ) {
     }
 
     return self;
+}
+
+function toDatestring(date = new Date()) {
+    var dd = date.getDate();
+    var mm = date.getMonth()+1; //January is 0!
+
+    var yyyy = date.getFullYear();
+    if(dd<10){
+        dd='0'+dd;
+    } 
+    if(mm<10){
+        mm='0'+mm;
+    } 
+    var datestring = yyyy+'-'+mm+'-'+dd;
+    return datestring
 }

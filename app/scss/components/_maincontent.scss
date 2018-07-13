@@ -148,6 +148,29 @@
                     padding: 0;
                     margin: 5px 30px 3px;
                 }
+
+                table {
+                    width: 100%;
+
+                    tbody {
+                        border: none;
+                    }
+
+                    .mf-item-title {
+                        font-size: 120%;
+                        vertical-align: middle;
+                        padding-right: 11px;
+                    }
+
+                    td {
+                        border: none;
+                    }
+
+                    input.form-control {
+                        width: 100%;
+                    }
+                }
+
             }
         }
 
@@ -182,6 +205,28 @@
                 input, .mf-error {
                     width: 100%;
                 }
+                .form-control {
+                    display: flex;
+                    min-height: 40px;
+                }
+                table {
+                    .mf-item-title {
+                        font-size: 83%;
+                        padding: 0;
+                        span {
+                            display: block;
+                            position: absolute !important;
+                            width: 70px;
+                            top: 0;
+                            padding: 8px 0 0 5px;
+                        }
+                    }
+                    
+                    td {
+                        padding: 22px 1px 0;
+                    }
+                }
+                
             }
             .mf-sub-panel {
                 margin-left: 11px;
