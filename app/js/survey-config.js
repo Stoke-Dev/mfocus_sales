@@ -451,6 +451,7 @@ function computePDF(data) {
         format: 'letter'
     })
 
+    //Typesetting the PDF
     doc.setFontSize(12);
     doc.text(9.5, 1.10, `Prepared For: ${data.formData.client_name}`, null, null, 'right')
     doc.setFontSize(10);
@@ -477,8 +478,37 @@ function computePDF(data) {
     let mf_logo_URI = "data:image/png;base64,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"
     doc.addImage(mf_logo_URI, 'PNG', 1, .6, 2, .484)
     doc.setFontSize(7);
-    doc.setTextColor(255, 255, 255)
-    doc.text(1, 8.31, "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostru")
+    doc.setTextColor(255)
+    let copyright = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostru";
+    doc.text(1, 8.31, copyright)
+    
+    doc.setTextColor(0)
+    doc.setFontType("bold")
+    doc.setFontSize(11)
+    doc.text(1.25,2.65,"Do Nothing Cost: 5 Yr")
+    doc.text(4,2.65,"Micro Focus Cost: 5 Yr")
+    doc.text(7,2.65,"Total Savings: 5 Yr") 
+    doc.setTextColor(204, 54, 49)
+    doc.setFontSize(36)
+    doc.text(1.25, 3.2, numeral(data.total_costs.total.do_nothing()).format('$0,0'))
+    doc.text(4, 3.2, numeral(data.total_costs.total.mf_solution()).format('$0,0'))
+
+    doc.setTextColor(74, 116, 181)
+    doc.text(7, 3.2, numeral(data.quantitative_benefits.total()).format('$0,0'))
+
+    doc.addPage()
+    doc.setDrawColor(74,116,181);
+    doc.setLineWidth(0.02);
+    doc.line(1, 1.25, 10, 1.25);
+    doc.setFillColor(74,116,181)
+    doc.rect(0,8,11,.5,'F')
+    doc.addImage(mf_logo_URI, 'PNG', 1, .6, 2, .484)
+    doc.setFontSize(7);
+    doc.setTextColor(255)
+    doc.setFontType("normal")
+    doc.text(1, 8.31, copyright)
+    
+
 
     function chartToPDF() {
         ctx.textAlign = "right";
@@ -493,6 +523,7 @@ function computePDF(data) {
 
         statusBarMessage("Compiling Elements...")
         URI = myChart.toBase64Image("image/png")
+        doc.setPage(1)
         doc.addImage(URI, 'PNG', 1, 3.75, 9, 3.75)
         statusBarMessage("Done!")
     }
@@ -532,7 +563,7 @@ function computePDF(data) {
                     },
                     formatter: function(v,cx) {
                         if (0 == cx.dataIndex){return ''}
-                        return `Year ${cx.dataIndex}: $${Math.round(v)}`
+                        return `Year ${cx.dataIndex}: ${numeral(v).format('$0,0')}`
                     }
                 }
             }, {
@@ -551,7 +582,7 @@ function computePDF(data) {
                     },
                     formatter: function(v,cx) {
                         if (0 == cx.dataIndex){return ''}
-                        return `Year ${cx.dataIndex}: $${Math.round(v)}`
+                        return `Year ${cx.dataIndex}: ${numeral(v).format('$0,0')}`
                     }
                 }
             }]
