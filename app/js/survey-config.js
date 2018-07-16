@@ -161,6 +161,46 @@ function sendDataToServer(survey) {
 
         html += "<a href='#' onclick='genPDF()'>Download</a><br>"
 
+        html += `
+                    <table id="table">
+                    <tr>
+                    <th>Company</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                    </tr>
+                    <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                    </tr>
+                    <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Francisco Chang</td>
+                    <td>Mexico</td>
+                    </tr>
+                    <tr>
+                    <td>Ernst Handel</td>
+                    <td>Roland Mendel</td>
+                    <td>Austria</td>
+                    </tr>
+                    <tr>
+                    <td>Island Trading</td>
+                    <td>Helen Bennett</td>
+                    <td>UK</td>
+                    </tr>
+                    <tr>
+                    <td>Laughing Bacchus Winecellars</td>
+                    <td>Yoshi Tannamuri</td>
+                    <td>Canada</td>
+                    </tr>
+                    <tr>
+                    <td>Magazzini Alimentari Riuniti</td>
+                    <td>Giovanni Rovelli</td>
+                    <td>Italy</td>
+                    </tr>
+                    </table>
+        `
+
         return html;
     });
 
@@ -508,6 +548,60 @@ function computePDF(data) {
     doc.setFontType("normal")
     doc.text(1, 8.31, copyright)
     
+    doc.addPage()
+    doc.setDrawColor(74,116,181);
+    doc.setLineWidth(0.02);
+    doc.line(1, 1.25, 10, 1.25);
+    doc.setFillColor(74,116,181)
+    doc.rect(0,8,11,.5,'F')
+    doc.addImage(mf_logo_URI, 'PNG', 1, .6, 2, .484)
+    doc.setFontSize(7);
+    doc.setTextColor(255)
+    doc.setFontType("normal")
+    doc.text(1, 8.31, copyright)
+
+    doc.setPage(2)
+
+    doc.setFontSize(14)
+    doc.setTextColor(74, 116, 181)
+    doc.text(1, 1.6, "Cost-Benefit Analysis: 5-Year Projects")
+    
+    var columns = ["Do-Nothing Option - Quantitative Costs", "Year 0 - Current Status without Micro Focus Solution", "Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Total"];
+    var rows = [
+        ["Recurring Costs - Do-Nothing Option"],
+        ["Entitlement Governance", data.doNothingOption.year0.entitlement_governance(), data.doNothingOption.year1.entitlement_governance(), data.doNothingOption.year2.entitlement_governance(), data.doNothingOption.year3.entitlement_governance(), data.doNothingOption.year4.entitlement_governance(), data.doNothingOption.year5.entitlement_governance(), data.doNothingOption.total.entitlement_governance()],
+        ["Activity Governance",  data.doNothingOption.year0.activity_governance(), data.doNothingOption.year1.activity_governance(), data.doNothingOption.year2.activity_governance(), data.doNothingOption.year3.activity_governance(), data.doNothingOption.year4.activity_governance(), data.doNothingOption.year5.activity_governance(), data.doNothingOption.total.activity_governance()],
+        ["Activity Governance - Compliance",  data.doNothingOption.year0.activity_governance_compliance(), data.doNothingOption.year1.activity_governance_compliance(), data.doNothingOption.year2.activity_governance_compliance(), data.doNothingOption.year3.activity_governance_compliance(), data.doNothingOption.year4.activity_governance_compliance(), data.doNothingOption.year5.activity_governance_compliance(), data.doNothingOption.total.activity_governance_compliance()],
+        ["Account Fulfilment / Provisioning - Turn-Over",  data.doNothingOption.year0.account_fulfilment_provisioning_turn_over(), data.doNothingOption.year1.account_fulfilment_provisioning_turn_over(), data.doNothingOption.year2.account_fulfilment_provisioning_turn_over(), data.doNothingOption.year3.account_fulfilment_provisioning_turn_over(), data.doNothingOption.year4.account_fulfilment_provisioning_turn_over(), data.doNothingOption.year5.account_fulfilment_provisioning_turn_over(), data.doNothingOption.total.account_fulfilment_provisioning_turn_over()],
+        ["Registrations",  data.doNothingOption.year0.registrations(), data.doNothingOption.year1.registrations(), data.doNothingOption.year2.registrations(), data.doNothingOption.year3.registrations(), data.doNothingOption.year4.registrations(), data.doNothingOption.year5.registrations(), data.doNothingOption.total.registrations()],
+        ["Password Reset",  data.doNothingOption.year0.password_reset(), data.doNothingOption.year1.password_reset(), data.doNothingOption.year2.password_reset(), data.doNothingOption.year3.password_reset(), data.doNothingOption.year4.password_reset(), data.doNothingOption.year5.password_reset(), data.doNothingOption.total.password_reset()],
+        ["IT Fulfilment - Change",  data.doNothingOption.year0.it_fulfilment_change(), data.doNothingOption.year1.it_fulfilment_change(), data.doNothingOption.year2.it_fulfilment_change(), data.doNothingOption.year3.it_fulfilment_change(), data.doNothingOption.year4.it_fulfilment_change(), data.doNothingOption.year5.it_fulfilment_change(), data.doNothingOption.total.it_fulfilment_change()],
+        ["Helpdesk Fulfilment - Change",  data.doNothingOption.year0.helpdesk_fulfilment_change(), data.doNothingOption.year1.helpdesk_fulfilment_change(), data.doNothingOption.year2.helpdesk_fulfilment_change(), data.doNothingOption.year3.helpdesk_fulfilment_change(), data.doNothingOption.year4.helpdesk_fulfilment_change(), data.doNothingOption.year5.helpdesk_fulfilment_change(), data.doNothingOption.total.helpdesk_fulfilment_change()],
+        ["Workflow",  data.doNothingOption.year0.workflow(), data.doNothingOption.year1.workflow(), data.doNothingOption.year2.workflow(), data.doNothingOption.year3.workflow(), data.doNothingOption.year4.workflow(), data.doNothingOption.year5.workflow(), data.doNothingOption.total.workflow()],
+        ["Decision Analytics - Auto approvals",  data.doNothingOption.year0.decision_analytics_auto_approvals(), data.doNothingOption.year1.decision_analytics_auto_approvals(), data.doNothingOption.year2.decision_analytics_auto_approvals(), data.doNothingOption.year3.decision_analytics_auto_approvals(), data.doNothingOption.year4.decision_analytics_auto_approvals(), data.doNothingOption.year5.decision_analytics_auto_approvals(), data.doNothingOption.total.decision_analytics_auto_approvals()],
+        ["Decision Analytics - Decision support",  data.doNothingOption.year0.decision_analytics_decision_support(), data.doNothingOption.year1.decision_analytics_decision_support(), data.doNothingOption.year2.decision_analytics_decision_support(), data.doNothingOption.year3.decision_analytics_decision_support(), data.doNothingOption.year4.decision_analytics_decision_support(), data.doNothingOption.year5.decision_analytics_decision_support(), data.doNothingOption.total.decision_analytics_decision_support()],
+        ["Identity Bus Dev/Test Cost",  data.doNothingOption.year0.identity_bus_dev_test_cost(), data.doNothingOption.year1.identity_bus_dev_test_cost(), data.doNothingOption.year2.identity_bus_dev_test_cost(), data.doNothingOption.year3.identity_bus_dev_test_cost(), data.doNothingOption.year4.identity_bus_dev_test_cost(), data.doNothingOption.year5.identity_bus_dev_test_cost(), data.doNothingOption.total.identity_bus_dev_test_cost()],
+        ["Identity Bus Point-to-Point Maintenance",  data.doNothingOption.year0.identity_bus_point_to_point_maintenance(), data.doNothingOption.year1.identity_bus_point_to_point_maintenance(), data.doNothingOption.year2.identity_bus_point_to_point_maintenance(), data.doNothingOption.year3.identity_bus_point_to_point_maintenance(), data.doNothingOption.year4.identity_bus_point_to_point_maintenance(), data.doNothingOption.year5.identity_bus_point_to_point_maintenance(), data.doNothingOption.total.identity_bus_point_to_point_maintenance()],
+        ["Single Sign On",  data.doNothingOption.year0.single_sign_on(), data.doNothingOption.year1.single_sign_on(), data.doNothingOption.year2.single_sign_on(), data.doNothingOption.year3.single_sign_on(), data.doNothingOption.year4.single_sign_on(), data.doNothingOption.year5.single_sign_on(), data.doNothingOption.total.single_sign_on()],
+        ["Access Bus Dev/Test Cost",  data.doNothingOption.year0.access_bus_dev_test_cost(), data.doNothingOption.year1.access_bus_dev_test_cost(), data.doNothingOption.year2.access_bus_dev_test_cost(), data.doNothingOption.year3.access_bus_dev_test_cost(), data.doNothingOption.year4.access_bus_dev_test_cost(), data.doNothingOption.year5.access_bus_dev_test_cost(), data.doNothingOption.total.access_bus_dev_test_cost()],
+        ["Custom Access Maintenance",  data.doNothingOption.year0.custom_access_maintenance(), data.doNothingOption.year1.custom_access_maintenance(), data.doNothingOption.year2.custom_access_maintenance(), data.doNothingOption.year3.custom_access_maintenance(), data.doNothingOption.year4.custom_access_maintenance(), data.doNothingOption.year5.custom_access_maintenance(), data.doNothingOption.total.custom_access_maintenance()],
+        ["Total Recurring Costs - Do-Nothing Option",  data.doNothingOption.year0.total_recurring_costs(), data.doNothingOption.year1.total_recurring_costs(), data.doNothingOption.year2.total_recurring_costs(), data.doNothingOption.year3.total_recurring_costs(), data.doNothingOption.year4.total_recurring_costs(), data.doNothingOption.year5.total_recurring_costs(), data.doNothingOption.total.total_recurring_costs()]
+    ];
+
+    doc.autoTable(columns, rows, {
+        styles:{
+            overflow: 'linebreak',
+            fontSize: 7,
+            columnWidth: 1.124
+        },
+
+        margin: {
+            top: 1.71,
+            left: 1,
+            right: 1,
+            bottom: .75,
+        },
+    });
 
 
     function chartToPDF() {
