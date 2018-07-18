@@ -119,7 +119,6 @@ $(document).ready(function(){
         });
 
         console.log("JSON LOADED: SUCCESS");
-        a();
     })
     .fail((jqxhr, textStatus, err)=>{
         $("#surveyElement").html("ERROR: Form framework could not be loaded");
