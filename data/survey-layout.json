@@ -96,12 +96,12 @@
 							"type": "text",
 							"name": "FTES_num",
 							"inputType": "number",
-							"title": "Number of FTEs"
+							"title": "Number of Full Time Employees (FTES)"
 						}, {
 							"type": "text",
 							"name": "FTES_Wage",
 							"inputType": "number",
-							"title": "Average Wage"
+							"title": "Average hourly wage for general staff ($)"
 						}, {
 							"type": "text",
 							"name": "FTES_annual_turn_over",
@@ -115,7 +115,7 @@
 								"type": "text",
 								"name": "Average_IT_staff_wage",
 								"inputType": "number",
-								"title": "Average IT Staff Wage"
+								"title": "Average IT staff hourly wage ($)"
 							}]
 						}, {
 							"title": "Fulfilment",
@@ -130,7 +130,7 @@
 								"type": "text",
 								"name": "FTES_id_conn_simple_cost",
 								"inputType": "number",
-								"title": "Cost of identity connected systems (simple)"
+								"title": "Cost of identity connected systems (simple) ($)"
 							}, {
 								"type": "text",
 								"name": "FTES_id_conn_medium",
@@ -140,7 +140,7 @@
 								"type": "text",
 								"name": "FTES_id_conn_medium_cost",
 								"inputType": "number",
-								"title": "Cost of identity connected systems (medium)"
+								"title": "Cost of identity connected systems (medium) ($)"
 							}, {
 								"type": "text",
 								"name": "FTES_id_conn_complex",
@@ -150,7 +150,7 @@
 								"type": "text",
 								"name": "FTES_id_conn_complex_cost",
 								"inputType": "number",
-								"title": "Cost of identity connected systems (complex)"
+								"title": "Cost of identity connected systems (complex) ($)"
 							}, {
 								"type": "text",
 								"name": "FTES_n_entitlements",
@@ -175,17 +175,17 @@
 								"type": "text",
 								"name": "FTES_password_forgets",
 								"inputType": "number",
-								"title": "Average # of forgotten passwords / staff /year"
+								"title": "Average # of forgotten passwords / staff / year"
 							}, {
 								"type": "text",
 								"name": "Helpdesk_call_cost",
 								"inputType": "number",
-								"title": "Average cost of helpdesk per call"
+								"title": "Average cost of helpdesk per call ($)"
 							}, {
 								"type": "text",
 								"name": "Helpdesk_password_reset_cost",
 								"inputType": "number",
-								"title": "Average cost of helpdesk per password reset"
+								"title": "Average cost of helpdesk per password reset ($)"
 							}, {
 								"type": "text",
 								"name": "Helpdesk_av_wait",
@@ -195,7 +195,7 @@
 								"type": "text",
 								"name": "FTES_SSPR_rate",
 								"inputType": "number",
-								"title": "Percentage \"Self Service\" Password Reset"
+								"title": "Percentage \"Self Service\" Password Reset (%)"
 							}]
 						}, {
 							"title": "Workflows",
@@ -208,7 +208,7 @@
 								"name": "FTES_id_wf_simple"
 							}, {
 								"type": "text",
-								"title": "Cost of identity workflows (simple)",
+								"title": "Cost of identity workflows (simple) ($)",
 								"inputType": "number",
 								"name": "FTES_id_wf_simple_cost"
 							}, {
@@ -218,7 +218,7 @@
 								"name": "FTES_id_wf_medium"
 							}, {
 								"type": "text",
-								"title": "Cost of identity workflows (medium)",
+								"title": "Cost of identity workflows (medium) ($)",
 								"inputType": "number",
 								"name": "FTES_id_wf_medium_cost"
 							}, {
@@ -228,7 +228,7 @@
 								"name": "FTES_id_wf_complex"
 							}, {
 								"type": "text",
-								"title": "Cost of identity workflows (complex)",
+								"title": "Cost of identity workflows (complex) ($)",
 								"inputType": "number",
 								"name": "FTES_id_wf_complex_cost"
 							}, {
@@ -245,7 +245,7 @@
 								"type": "text",
 								"name": "FTES_approv_wage",
 								"inputType": "number",
-								"title": "Average approver wage"
+								"title": "Average approver wage ($)"
 							}, {
 								"type": "text",
 								"name": "FTES_approv_time",
@@ -283,12 +283,12 @@
 								"name": "FTES_id_apps_conn"
 							}, {
 								"type": "text",
-								"title": "P2P annual maintenance rate",
+								"title": "P2P annual maintenance rate (%)",
 								"inputType": "number",
 								"name": "FTES_P2P_apps_mtce"
 							}, {
 								"type": "text",
-								"title": "Identity bus annual maintenance rate",
+								"title": "Identity bus annual maintenance rate (%)",
 								"inputType": "number",
 								"name": "FTES_IB_apps_mtce"
 							}]
@@ -330,12 +330,12 @@
 								"type": "text",
 								"name": "FTES_AM_cust_apps_mtce",
 								"inputType": "number",
-								"title": "Custom access annual maintenance rate"
+								"title": "Custom access annual maintenance rate (%)"
 							}, {
 								"type": "text",
 								"name": "FTES_AB_apps_mtce",
 								"inputType": "number",
-								"title": "Access bus annual maintenance rate"
+								"title": "Access bus annual maintenance rate (%)"
 							}]
 						}, {
 							"title": "Governance",
@@ -350,27 +350,27 @@
 								"type": "text",
 								"name": "FTES_av_ent_risk_impact",
 								"inputType": "number",
-								"title": "Average risk impact per entitlement"
+								"title": "Average risk impact per entitlement ($)"
 							}, {
 								"type": "text",
 								"name": "FTES_av_opex_ent",
 								"inputType": "number",
-								"title": "Average OpEx per entitlement"
+								"title": "Average OpEx per entitlement ($)"
 							}, {
 								"type": "text",
 								"name": "FTES_password_breach_likelihood",
 								"inputType": "number",
-								"title": "Password breach likelihood"
+								"title": "Password breach likelihood (%)"
 							}, {
 								"type": "text",
 								"name": "FTES_push_notification_likelihood",
 								"inputType": "number",
-								"title": "Push notification break likelihood"
+								"title": "Push notification break likelihood (%)"
 							}, {
 								"type": "text",
 								"name": "FTES_stale_entitlement_rate",
 								"inputType": "number",
-								"title": "Proportion of stale (unused) entitlements"
+								"title": "Proportion of stale (unused) entitlements (%)"
 							}, {
 								"type": "text",
 								"name": "FTES_man_compliance_reports",
@@ -408,13 +408,13 @@
                         }, {
 							"type": "text",
 							"name": "CTES_num",
-							"title": "Number of CTEs",
+							"title": "Number of Casual Employees (CTEs)",
 							"inputType": "number"
 						}, {
 							"type": "text",
 							"name": "CTES_Wage",
 							"inputType": "number",
-							"title": "Average Wage"
+							"title": "Average hourly Wage ($)"
 						}, {
 							"type": "text",
 							"name": "CTES_annual_turn_over",
@@ -443,7 +443,7 @@
 								"type": "text",
 								"name": "CTES_SSPR_rate",
 								"inputType": "number",
-								"title": "Percentage \"Self Service\" Password Reset"
+								"title": "Percentage \"Self Service\" Password Reset (%)"
 							}]
 						}, {
 							"title": "Workflows",
@@ -493,17 +493,17 @@
 								"type": "text",
 								"name": "CTES_av_ent_risk_impact",
 								"inputType": "number",
-								"title": "Average risk impact per entitlement"
+								"title": "Average risk impact per entitlement ($)"
 							}, {
 								"type": "text",
 								"name": "CTES_av_opex_ent",
 								"inputType": "number",
-								"title": "Average OpEx per entitlement"
+								"title": "Average OpEx per entitlement ($)"
 							}, {
 								"type": "text",
 								"name": "CTES_stale_entitlement_rate",
 								"inputType": "number",
-								"title": "Proportion of stale (unused) entitlements"
+								"title": "Proportion of stale (unused) entitlements (%)"
 							}]
 						}]
 					},
