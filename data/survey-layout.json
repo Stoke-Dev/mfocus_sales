@@ -12,7 +12,7 @@
 					"type": "html",
 					"name": "helper",
 					"title": "Client Data",
-					"html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p>"
+					"html": "<p>This report uses high level figures (staff numbers and connected systems) to determine value. For full details on the calculation process see our corporate blog on this at <a target='_blank' href='https://blog.microfocus.com/'>blog.microfocus.com</a></p>"
 				}, {
 					"type": "text",
 					"name": "prep_date",
@@ -28,13 +28,16 @@
 					"items": [
 						{
 							"name": "prep_name",
-							"title": "Rep Name"
+							"title": "Rep Name",
+							"placeHolder": "First, Last"
 						}, {
 							"name": "prep_email",
-							"title": "Rep Email"
+							"title": "Rep Email",
+							"placeHolder": "myemail@microfocus.com"
 						}, {
 							"name": "prep_other",
-							"title": "Additional Info"
+							"title": "Additional Info",
+							"placeHolder": "(optional) i.e. phone, fax"
 						}
 					]
 				}]
@@ -46,12 +49,13 @@
 					"type": "html",
 					"name": "helper",
 					"title": "Client Data",
-					"html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p>"
+					"html": "<p>To ensure that this report is personalized and tracked, client information is required.</p>"
 				}, {
 					"type": "text",
 					"name": "client_name",
 					"title": "Organization Name",
-					"isRequired": true
+					"isRequired": true,
+					"placeHolder": "ABC Company LLC."
 				}, {
 					"type": "multipletext",
 					"name": "client_poc",
@@ -61,14 +65,17 @@
 					"items": [
 						{
 							"name": "poc_name",
-							"title": "POC Name"
+							"title": "POC Name",
+							"placeHolder": "First, Last"
 						}, {
 							"name": "poc_email",
 							"title": "POC Email",
-							"inputType": "email"
+							"inputType": "email",
+							"placeHolder": "clientemail@company.com"
 						}, {
 							"name": "poc_other",
-							"title": "Additional Info"
+							"title": "Additional Info",
+							"placeHolder": "(optional) i.e. phone, address"
 						}
 					]
 				}]
@@ -82,7 +89,7 @@
 						"type": "html",
 						"name": "helper",
 						"title": "Client Data",
-						"html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p><p><button type='button' data-ex-all>Expand All</button></p>"
+						"html": "<p>To provide the best information, the inputs need to be customized to reflect number of staff, local costs for licenses and wages, etc...</p><p><button type='button' data-ex-all>Expand All</button></p>"
 					}, {
 						"title": "Full Time Employees (FTEs)",
 						"type": "panel",
@@ -91,22 +98,25 @@
                             "type": "html",
                             "name": "helper",
                             "title": "Client Data",
-                            "html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p><p><button type='button' data-ex-sub='fte'>Expand Subsections</button></p>"
+                            "html": "<p>To calculate the value that an identity and access system will provide, the details of the full time staff (or equivalent) is required. One of the key value factors is the rate of change for staff - onboarding, offboarding and role changes (especially within projects, or change the business, functions).</p><p><button type='button' data-ex-sub='fte'>Expand Subsections</button></p>"
                         }, {
 							"type": "text",
 							"name": "FTES_num",
 							"inputType": "number",
-							"title": "Number of Full Time Employees (FTES)"
+							"title": "Number of Full Time Employees (FTES)",
+							"placeHolder": "0"
 						}, {
 							"type": "text",
 							"name": "FTES_Wage",
 							"inputType": "number",
-							"title": "Average hourly wage for general staff ($)"
+							"title": "Average hourly wage for general staff ($)",
+							"placeHolder": "0.00"
 						}, {
 							"type": "text",
 							"name": "FTES_annual_turn_over",
 							"inputType": "number",
-							"title": "Average Annual Turn-over (%)"
+							"title": "Average Annual Turn-over (%)",
+							"placeHolder": "0"
 						}, {
 							"title": "IT Staff",
 							"type": "panel",
@@ -115,7 +125,8 @@
 								"type": "text",
 								"name": "Average_IT_staff_wage",
 								"inputType": "number",
-								"title": "Average IT staff hourly wage ($)"
+								"title": "Average IT staff hourly wage ($)",
+								"placeHolder": "0.00"
 							}]
 						}, {
 							"title": "Fulfilment",
@@ -125,47 +136,56 @@
 								"type": "text",
 								"name": "FTES_id_conn_simple",
 								"inputType": "number",
-								"title": "Number of identity connected systems (simple)"
+								"title": "Number of identity connected systems (simple)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_id_conn_simple_cost",
 								"inputType": "number",
-								"title": "Cost of identity connected systems (simple) ($)"
+								"title": "Cost of identity connected systems (simple) ($)",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"name": "FTES_id_conn_medium",
 								"inputType": "number",
-								"title": "Number of identity connected systems (medium)"
+								"title": "Number of identity connected systems (medium)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_id_conn_medium_cost",
 								"inputType": "number",
-								"title": "Cost of identity connected systems (medium) ($)"
+								"title": "Cost of identity connected systems (medium) ($)",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"name": "FTES_id_conn_complex",
 								"inputType": "number",
-								"title": "Number of identity connected systems (complex)"
+								"title": "Number of identity connected systems (complex)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_id_conn_complex_cost",
 								"inputType": "number",
-								"title": "Cost of identity connected systems (complex) ($)"
+								"title": "Cost of identity connected systems (complex) ($)",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"name": "FTES_n_entitlements",
 								"inputType": "number",
-								"title": "Average number of entitlements / staff"
+								"title": "Average number of entitlements / staff",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_Change_Biz",
 								"inputType": "number",
-								"title": "Staff in change the business (%)"
+								"title": "Staff in change the business (%)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_Change_Biz_ent",
 								"inputType": "number",
-								"title": "Change the business entitlement changes / year"
+								"title": "Change the business entitlement changes / year",
+								"placeHolder": "0"
 							}]
 						}, {
 							"title": "Self Service",
@@ -175,27 +195,32 @@
 								"type": "text",
 								"name": "FTES_password_forgets",
 								"inputType": "number",
-								"title": "Average # of forgotten passwords / staff / year"
+								"title": "Average # of forgotten passwords / staff / year",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "Helpdesk_call_cost",
 								"inputType": "number",
-								"title": "Average cost of helpdesk per call ($)"
+								"title": "Average cost of helpdesk per call ($)",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"name": "Helpdesk_password_reset_cost",
 								"inputType": "number",
-								"title": "Average cost of helpdesk per password reset ($)"
+								"title": "Average cost of helpdesk per password reset ($)",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"name": "Helpdesk_av_wait",
 								"inputType": "number",
-								"title": "Average helpdesk wait time (minutes)"
+								"title": "Average helpdesk wait time (minutes)",
+								"placeHolder": "0.0"
 							}, {
 								"type": "text",
 								"name": "FTES_SSPR_rate",
 								"inputType": "number",
-								"title": "Percentage \"Self Service\" Password Reset (%)"
+								"title": "Percentage \"Self Service\" Password Reset (%)",
+								"placeHolder": "0"
 							}]
 						}, {
 							"title": "Workflows",
@@ -205,37 +230,44 @@
 								"type": "text",
 								"title": "Number of identity workflows (simple)",
 								"inputType": "number",
-								"name": "FTES_id_wf_simple"
+								"name": "FTES_id_wf_simple",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"title": "Cost of identity workflows (simple) ($)",
 								"inputType": "number",
-								"name": "FTES_id_wf_simple_cost"
+								"name": "FTES_id_wf_simple_cost",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"title": "Number of identity workflows (medium)",
 								"inputType": "number",
-								"name": "FTES_id_wf_medium"
+								"name": "FTES_id_wf_medium",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"title": "Cost of identity workflows (medium) ($)",
 								"inputType": "number",
-								"name": "FTES_id_wf_medium_cost"
+								"name": "FTES_id_wf_medium_cost",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"title": "Number of identity workflows (complex)",
 								"inputType": "number",
-								"name": "FTES_id_wf_complex"
+								"name": "FTES_id_wf_complex",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"title": "Cost of identity workflows (complex) ($)",
 								"inputType": "number",
-								"name": "FTES_id_wf_complex_cost"
+								"name": "FTES_id_wf_complex_cost",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"title": "Average number of workflows / staff / year",
 								"inputType": "number",
-								"name": "FTES_workflows_yr"
+								"name": "FTES_workflows_yr",
+								"placeHolder": "0"
 							}]
 						}, {
 							"title": "Decision Analytics",
@@ -245,22 +277,26 @@
 								"type": "text",
 								"name": "FTES_approv_wage",
 								"inputType": "number",
-								"title": "Average approver wage ($)"
+								"title": "Average approver wage ($)",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"name": "FTES_approv_time",
 								"inputType": "number",
-								"title": "Average time to approve (mins)"
+								"title": "Average time to approve (mins)",
+								"placeHolder": "0.0"
 							}, {
 								"type": "text",
 								"name": "FTES_approv_manual",
 								"inputType": "number",
-								"title": "Proportion of workflows requiring approvals (%)"
+								"title": "Proportion of workflows requiring approvals (%)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_approv_savings_rate",
 								"inputType": "number",
-								"title": "Decision support time reduction (%)"
+								"title": "Decision support time reduction (%)",
+								"placeHolder": "0"
 							}]
 						}, {
 							"title": "Identity Bus",
@@ -270,27 +306,32 @@
 								"type": "text",
 								"name": "FTES_P2P_dev_hrs",
 								"inputType": "number",
-								"title": "Average dev & test time for app P2P for identity (hours)"
+								"title": "Average dev & test time for app P2P for identity (hours)",
+								"placeHolder": "0.0"
 							}, {
 								"type": "text",
 								"name": "FTES_id_apps",
 								"inputType": "number",
-								"title": "Number of applications the require identity"
+								"title": "Number of applications the require identity",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"title": "Average number of P2P connections per app",
 								"inputType": "number",
-								"name": "FTES_id_apps_conn"
+								"name": "FTES_id_apps_conn",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"title": "P2P annual maintenance rate (%)",
 								"inputType": "number",
-								"name": "FTES_P2P_apps_mtce"
+								"name": "FTES_P2P_apps_mtce",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"title": "Identity bus annual maintenance rate (%)",
 								"inputType": "number",
-								"name": "FTES_IB_apps_mtce"
+								"name": "FTES_IB_apps_mtce",
+								"placeHolder": "0"
 							}]
 						}, {
 							"title": "Single Sign On",
@@ -300,42 +341,50 @@
 								"type": "text",
 								"name": "FTES_AM_inj",
 								"inputType": "number",
-								"title": "Number of access connected systems (injection)"
+								"title": "Number of access connected systems (injection)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_AM_fed",
 								"inputType": "number",
-								"title": "Number of access connected systems (federation)"
+								"title": "Number of access connected systems (federation)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_AM_avg_login_time",
 								"inputType": "number",
-								"title": "Average login time (secs) avoided per SSO"
+								"title": "Average login time (secs) avoided per SSO",
+								"placeHolder": "0.0"
 							}, {
 								"type": "text",
 								"name": "FTES_working_days",
 								"inputType": "number",
-								"title": "Effective working days per year"
+								"title": "Effective working days per year",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_cust_AM_dev_hrs",
 								"inputType": "number",
-								"title": "Average dev & test time for app customisation (hours)"
+								"title": "Average dev & test time for app customisation (hours)",
+								"placeHolder": "0.0"
 							}, {
 								"type": "text",
 								"name": "FTES_AM_apps",
 								"inputType": "number",
-								"title": "Number of applications that require access"
+								"title": "Number of applications that require access",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_AM_cust_apps_mtce",
 								"inputType": "number",
-								"title": "Custom access annual maintenance rate (%)"
+								"title": "Custom access annual maintenance rate (%)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_AB_apps_mtce",
 								"inputType": "number",
-								"title": "Access bus annual maintenance rate (%)"
+								"title": "Access bus annual maintenance rate (%)",
+								"placeHolder": "0"
 							}]
 						}, {
 							"title": "Governance",
@@ -345,52 +394,62 @@
 								"type": "text",
 								"name": "FTES_revocation_acc",
 								"inputType": "number",
-								"title": "Completeness of access revocations (%)"
+								"title": "Completeness of access revocations (%)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_av_ent_risk_impact",
 								"inputType": "number",
-								"title": "Average risk impact per entitlement ($)"
+								"title": "Average risk impact per entitlement ($)",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"name": "FTES_av_opex_ent",
 								"inputType": "number",
-								"title": "Average OpEx per entitlement ($)"
+								"title": "Average OpEx per entitlement ($)",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"name": "FTES_password_breach_likelihood",
 								"inputType": "number",
-								"title": "Password breach likelihood (%)"
+								"title": "Password breach likelihood (%)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_push_notification_likelihood",
 								"inputType": "number",
-								"title": "Push notification break likelihood (%)"
+								"title": "Push notification break likelihood (%)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_stale_entitlement_rate",
 								"inputType": "number",
-								"title": "Proportion of stale (unused) entitlements (%)"
+								"title": "Proportion of stale (unused) entitlements (%)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_man_compliance_reports",
 								"inputType": "number",
-								"title": "Manual Compliance reports required per year"
+								"title": "Manual Compliance reports required per year",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_num_app_monitor",
 								"inputType": "number",
-								"title": "No. of Applications for on-going monitoring"
+								"title": "No. of Applications for on-going monitoring",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "FTES_avg_time_per_app_compliance_report",
 								"inputType": "number",
-								"title": "Average Time Spent per Application on Compliance reporting (hours)"
+								"title": "Average Time Spent per Application on Compliance reporting (hours)",
+								"placeHolder": "0.0"
 							}, {
 								"type": "text",
 								"name": "FTES_num_compliance_staff",
 								"inputType": "number",
-								"title": "No. of Staff Involved for compliance"
+								"title": "No. of Staff Involved for compliance",
+								"placeHolder": "0"
 							}]
 						}]
 					},
@@ -404,22 +463,25 @@
                             "type": "html",
                             "name": "helper",
                             "title": "Client Data",
-                            "html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p><p><button type='button' data-ex-sub='ctes'>Expand Subsections</button></p>"
+                            "html": "<p>Industries with high transient workforces (e.g. healthcare and retail) will see a much larger value proposition than those with more traditional workforce profiles. Casual employees reflect the higher turnover and typically reduced access set compared to full time employees.</p><p><button type='button' data-ex-sub='ctes'>Expand Subsections</button></p>"
                         }, {
 							"type": "text",
 							"name": "CTES_num",
 							"title": "Number of Casual Employees (CTEs)",
-							"inputType": "number"
+							"inputType": "number",
+							"placeHolder": "0"
 						}, {
 							"type": "text",
 							"name": "CTES_Wage",
 							"inputType": "number",
-							"title": "Average hourly Wage ($)"
+							"title": "Average hourly Wage ($)",
+							"placeHolder": "0.00"
 						}, {
 							"type": "text",
 							"name": "CTES_annual_turn_over",
 							"inputType": "number",
-							"title": "Average Annual Turn-over (%)"
+							"title": "Average Annual Turn-over (%)",
+							"placeHolder": "0"
 						}, {
 							"title": "Fulfilment",
 							"type": "panel",
@@ -428,7 +490,8 @@
 								"type": "text",
 								"name": "CTES_n_entitlements",
 								"inputType": "number",
-								"title": "Average number of entitlements / staff"
+								"title": "Average number of entitlements / staff",
+								"placeHolder": "0"
 							}]
 						}, {
 							"title": "Self Service",
@@ -438,12 +501,14 @@
 								"type": "text",
 								"name": "CTES_passwords_forgets",
 								"inputType": "number",
-								"title": "Average # of forgotten passwords / staff /year"
+								"title": "Average # of forgotten passwords / staff /year",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "CTES_SSPR_rate",
 								"inputType": "number",
-								"title": "Percentage \"Self Service\" Password Reset (%)"
+								"title": "Percentage \"Self Service\" Password Reset (%)",
+								"placeHolder": "0"
 							}]
 						}, {
 							"title": "Workflows",
@@ -453,7 +518,8 @@
 								"type": "text",
 								"name": "CTES_workflows_yr",
 								"inputType": "number",
-								"title": "Average number of workflows / staff / year"
+								"title": "Average number of workflows / staff / year",
+								"placeHolder": "0"
 							}]
 						}, {
 							"title": "Decision Analytics",
@@ -463,7 +529,8 @@
 								"type": "text",
 								"name": "CTES_approv_manual",
 								"inputType": "number",
-								"title": "Proportion of workflows requiring approvals (%)"
+								"title": "Proportion of workflows requiring approvals (%)",
+								"placeHolder": "0"
 							}]
 						}, {
 							"title": "Single Sign On",
@@ -473,12 +540,14 @@
 								"type": "text",
 								"name": "CTES_AM_inj",
 								"inputType": "number",
-								"title": "Number of access connected systems (injection)"
+								"title": "Number of access connected systems (injection)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "CTES_AM_fed",
 								"inputType": "number",
-								"title": "Number of access connected systems (federation)"
+								"title": "Number of access connected systems (federation)",
+								"placeHolder": "0"
 							}]
 						}, {
 							"title": "Governance",
@@ -488,22 +557,26 @@
 								"type": "text",
 								"name": "CTES_revocation_acc",
 								"inputType": "number",
-								"title": "Completeness of access revocations (%)"
+								"title": "Completeness of access revocations (%)",
+								"placeHolder": "0"
 							}, {
 								"type": "text",
 								"name": "CTES_av_ent_risk_impact",
 								"inputType": "number",
-								"title": "Average risk impact per entitlement ($)"
+								"title": "Average risk impact per entitlement ($)",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"name": "CTES_av_opex_ent",
 								"inputType": "number",
-								"title": "Average OpEx per entitlement ($)"
+								"title": "Average OpEx per entitlement ($)",
+								"placeHolder": "0.00"
 							}, {
 								"type": "text",
 								"name": "CTES_stale_entitlement_rate",
 								"inputType": "number",
-								"title": "Proportion of stale (unused) entitlements (%)"
+								"title": "Proportion of stale (unused) entitlements (%)",
+								"placeHolder": "0"
 							}]
 						}]
 					},
@@ -516,22 +589,25 @@
                             "type": "html",
                             "name": "helper",
                             "title": "Client Data",
-                            "html": "<p>Lit vestibulum volutpat erat, sed accumsan eros porttitor sollicitudin. Quisque semper nisl metus, ut tristique ex venenatis id. Sed tempus nisl in neque luctus, at hendrerit dolor fringilla. Donec at risus lorem. Vestibulum id neque orci. Praesent ut aliquet metus. Morbi porta tortor in lectus dictum malesuada. Sed non turpis purus. Aenean lobortis metus quis sem gravida varius eu varius justo.</p><p style='display:none;'><button type='button' data-ex-sub='cust'>Expand Subsections</button></p>"
+                            "html": "<p>Whilst there is no difference between the mechanics of customer versus staff IAM, the value proposition is very different. Staff IAM value can be measured via wages, etc., whereas customer IAM value is based on purchases over time, etc.. This requires that a customer understands the proportion of active customers and their average value.</p><p style='display:none;'><button type='button' data-ex-sub='cust'>Expand Subsections</button></p>"
                         }, {
 							"type": "text",
 							"name": "CUST_num",
 							"inputType": "number",
-							"title": "Number of Customers"
+							"title": "Number of Customers",
+							"placeHolder": "0"
 						}, {
 							"type": "text",
 							"name": "CUST_avg_val",
 							"inputType": "number",
-							"title": "Average annual customer value"
+							"title": "Average annual customer value",
+							"placeHolder": "0"
 						}, {
 							"type": "text",
 							"name": "CUST_active",
 							"inputType": "number",
-							"title": "Active customers (%)"
+							"title": "Active customers (%)",
+							"placeHolder": "0"
 						}]
 					}
 				]
